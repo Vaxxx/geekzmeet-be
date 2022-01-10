@@ -81,7 +81,7 @@ class AuthController extends Controller
                 //$token = $user->createToken($user->email.'_Token')->accessToken;
                 return response()->json([
                     'status'=>200,
-                    'username' => $user->name,
+                    'username' => $user->email,
                     'token' => $token,
                     'message' => 'Logged in Successful'
                 ]);

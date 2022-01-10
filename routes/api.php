@@ -21,6 +21,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('logout', [\App\Http\Controllers\AuthController::class, 'logout']);
+    //get user details
+    Route::get('userdetails/{email}', [\App\Http\Controllers\UserController::class,'getUserDetails']);
 
 });
 
