@@ -81,7 +81,7 @@ class AuthController extends Controller
                 //$token = $user->createToken($user->email.'_Token')->accessToken;
                 return response()->json([
                     'status'=>200,
-                    'username' => $user->email,
+                    'user' => $user,
                     'token' => $token,
                     'message' => 'Logged in Successful'
                 ]);
@@ -93,7 +93,14 @@ class AuthController extends Controller
         auth()->user()->tokens()->delete();
         return response()->json([
             'status' => 200,
-            'message' => 'Logged out successfully!'
+            'message' => 'Logged out!'
+        ]);
+    }
+
+    public function existingUser(){
+        return response()->json([
+            'status' => 200,
+            'user' => auth()->user()
         ]);
     }
 }
